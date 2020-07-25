@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(bodyParser.json())
 
-db.on('error', console.error.bind(console, 'Eroare la conectarea cu MongoDB!!!:'))
+db.on('error', console.error.bind(console, 'Eroare la conectarea cu MongoDB:'))
 
 app.get('/', (req, res) => {
     res.send('Hello World!\n')
