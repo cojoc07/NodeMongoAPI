@@ -12,5 +12,8 @@ router.put('/movie/:id', MovieCtrl.updateMovie)
 router.delete('/movie/:id', MovieCtrl.deleteMovie)
 
 router.get('/users', UserCtrl.getUsers)
+router.get('/test', function(req, res){
+    res.send("ai nimerit pe o pagina de test!")
+})
 
 module.exports = router
