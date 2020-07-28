@@ -16,4 +16,8 @@ router.get('/test', function(req, res){
     res.send("ai nimerit pe o pagina de test!")
 })
 
+router.get('/test2', function(req, res){
+    res.send("Inca un test din git")
+})
+
 module.exports = router
