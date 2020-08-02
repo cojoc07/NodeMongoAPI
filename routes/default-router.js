@@ -19,7 +19,7 @@ router.get('/users', UserCtrl.getUsers)
 //tutorials
 router.get('/tutorials', TutorialCtrl.getTutorials)
 router.get('/tutorial/:id', TutorialCtrl.getTutorialById)
-router.get('tutorials/findbyid', TutorialCtrl.findByTitle)
+router.get('/tutorials/findbytitle', TutorialCtrl.findByTitle)
 router.post('/tutorial', TutorialCtrl.createTutorial)
 router.put('/tutorial/:id', TutorialCtrl.updateTutorial)
 router.delete('/tutorial/:id', TutorialCtrl.deleteTutorial)
