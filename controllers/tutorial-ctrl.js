@@ -116,10 +116,27 @@ getTutorials = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+findAll = async (req, res) => {
+    const title = req.query.title;
+    var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
+  
+    await Tutorial.find(condition)
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving tutorials."
+        });
+      });
+  };
+
 module.exports = {
     createTutorial,
     updateTutorial,
     deleteTutorial,
     getTutorials,
     getTutorialById,
+    findAll
 }
