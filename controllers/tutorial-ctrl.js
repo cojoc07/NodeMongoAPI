@@ -116,7 +116,7 @@ getTutorials = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
-findAll = async (req, res) => {
+findByTitle = async (req, res) => {
     const title = req.query.title;
     var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
   
@@ -138,5 +138,5 @@ module.exports = {
     deleteTutorial,
     getTutorials,
     getTutorialById,
-    findAll
+    findByTitle
 }
