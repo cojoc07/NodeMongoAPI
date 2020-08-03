@@ -21,7 +21,7 @@ createTutorial = (req, res) => {
         .then(() => {
             return res.status(201).json({
                 success: true,
-                id: tutorial._id,
+                id: tutorial.id,
                 message: 'Tutorial created!',
             })
         })
@@ -43,7 +43,7 @@ updateTutorial = async (req, res) => {
         })
     }
 
-    Tutorial.findOne({ _id: req.params.id }, (err, tutorial) => {
+    Tutorial.findOne({ id: req.params.id }, (err, tutorial) => {
         if (err) {
             return res.status(404).json({
                 err,
@@ -58,7 +58,7 @@ updateTutorial = async (req, res) => {
             .then(() => {
                 return res.status(200).json({
                     success: true,
-                    id: tutorial._id,
+                    id: tutorial.id,
                     message: 'Tutorial updated!',
                 })
             })
@@ -72,7 +72,7 @@ updateTutorial = async (req, res) => {
 }
 
 deleteTutorial = async (req, res) => {
-    await Tutorial.findOneAndDelete({ _id: req.params.id }, (err, tutorial) => {
+    await Tutorial.findOneAndDelete({ id: req.params.id }, (err, tutorial) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }
@@ -88,7 +88,7 @@ deleteTutorial = async (req, res) => {
 }
 
 getTutorialById = async (req, res) => {
-    await Tutorial.findOne({ _id: req.params.id }, (err, tutorial) => {
+    await Tutorial.findOne({ id: req.params.id }, (err, tutorial) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }
