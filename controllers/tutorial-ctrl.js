@@ -22,6 +22,8 @@ createTutorial = (req, res) => {
             return res.status(201).json({
                 success: true,
                 id: tutorial._id,
+                title: tutorial.title,
+                description: tutorial.description,
                 message: 'Tutorial created!',
             })
         })
