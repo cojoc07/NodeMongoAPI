@@ -23,6 +23,7 @@ router.get('/tutorials/findbytitle', TutorialCtrl.findByTitle)
 router.post('/tutorial', TutorialCtrl.createTutorial)
 router.put('/tutorial/:id', TutorialCtrl.updateTutorial)
 router.delete('/tutorial/:id', TutorialCtrl.deleteTutorial)
+router.delete('/tutorials/', TutorialCtrl.deleteAllTutorials)
 
 router.get('/test', function(req, res){
     res.send("ai nimerit pe o pagina de test!")

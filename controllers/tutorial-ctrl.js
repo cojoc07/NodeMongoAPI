@@ -87,6 +87,21 @@ deleteTutorial = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+deleteAllTutorials = async(req, res) => {
+    await Tutorial.deleteMany({})
+    .then(data => {
+      res.send({
+        message: `${data.deletedCount} Tutorials were deleted successfully!`
+      });
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while removing all tutorials."
+      });
+    });
+}
+
 getTutorialById = async (req, res) => {
     await Tutorial.findOne({ _id: req.params.id }, (err, tutorial) => {
         if (err) {
@@ -136,6 +151,7 @@ module.exports = {
     createTutorial,
     updateTutorial,
     deleteTutorial,
+    deleteAllTutorials,
     getTutorials,
     getTutorialById,
     findByTitle
