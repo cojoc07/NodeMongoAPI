@@ -190,6 +190,7 @@ findByTitle = async (req, res) => {
 module.exports = {
     createTutorial,
     updateTutorial,
+    patchTutorial,
     deleteTutorial,
     deleteAllTutorials,
     getTutorials,
