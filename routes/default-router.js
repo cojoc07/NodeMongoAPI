@@ -22,7 +22,6 @@ router.get('/tutorial/:id', TutorialCtrl.getTutorialById)
 router.get('/tutorials/findbytitle', TutorialCtrl.findByTitle)
 router.post('/tutorial', TutorialCtrl.createTutorial)
 router.put('/tutorial/:id', TutorialCtrl.updateTutorial)
-router.patch('/tutorial/:id', TutorialCtrl.patchTutorial)
 router.delete('/tutorial/:id', TutorialCtrl.deleteTutorial)
 router.delete('/tutorials/', TutorialCtrl.deleteAllTutorials)
 

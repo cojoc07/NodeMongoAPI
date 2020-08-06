@@ -73,44 +73,6 @@ updateTutorial = async (req, res) => {
     })
 }
 
-patchTutorial = async (req, res) => {
-    const body = req.body
-
-    if (!body) {
-        return res.status(400).json({
-            success: false,
-            error: 'You must provide a body for patch request',
-        })
-    }
-
-    Tutorial.findOne({ _id: req.params.id }, (err, tutorial) => {
-        if (err) {
-            return res.status(404).json({
-                err,
-                message: 'Tutorial not found!',
-            })
-        }
-        tutorial.title = body.title ? body.title : tutorial.title
-        tutorial.description = body.description ? body.description : tutorial.description
-        tutorial.published = body.published ? body.published : tutorial.published
-        tutorial
-            .save()
-            .then(() => {
-                return res.status(200).json({
-                    success: true,
-                    id: tutorial._id,
-                    message: 'Tutorial updated!',
-                })
-            })
-            .catch(error => {
-                return res.status(404).json({
-                    error,
-                    message: 'Tutorial not updated!',
-                })
-            })
-    })
-}
-
 deleteTutorial = async (req, res) => {
     await Tutorial.findOneAndDelete({ _id: req.params.id }, (err, tutorial) => {
         if (err) {
@@ -190,7 +152,6 @@ findByTitle = async (req, res) => {
 module.exports = {
     createTutorial,
     updateTutorial,
-    patchTutorial,
     deleteTutorial,
     deleteAllTutorials,
     getTutorials,
