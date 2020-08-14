@@ -29,6 +29,4 @@ router.get('/test', function(req, res){
     res.send("ai nimerit pe o pagina de test!")
 })
 
-
-
 module.exports = router
