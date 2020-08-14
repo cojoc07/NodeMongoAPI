@@ -21,6 +21,8 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+User.register({username:'paul', active: false}, 'paul');
+
 module.exports = {
     getUsers
 }
