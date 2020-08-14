@@ -1,4 +1,5 @@
 const User = require('../models/user-model')
+const passport = require('passport');
 
 getUsers = async (req, res) => {
     await User.find({}, (err, users) => {
@@ -15,6 +16,10 @@ getUsers = async (req, res) => {
         return res.status(200).json({success: true, data: users})
     }).catch(err => console.log(err))
 }
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 module.exports = {
     getUsers
