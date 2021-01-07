@@ -1,4 +1,4 @@
-# mern-kube - NodeJS + MongoDB example API
+# NodeJS + MongoDB example API
 
 Ready to deploy NodeJS API example. The app is ready to be used in Docker/Kubernetes.
 
